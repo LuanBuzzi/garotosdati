@@ -8,19 +8,9 @@ $categorias = $conn->query("SELECT * FROM categorias");
 <head>
   <meta charset="UTF-8">
   <title>Fórum Hive</title>
-  <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
-        <div class="container">
-            <a class="navbar-brand fw-bold" href="#">Hive</a>
-            <div class="ms-auto d-flex align-items-center">
-                <span class="me-3 text-muted">Olá, <?= htmlspecialchars($usuario) ?>!</span>
-                <a href="logout.php" class="btn btn-outline-danger">Sair</a>
-            </div>
-        </div>
-    </nav>
+<?php include 'navbar.php'; ?>
 
 <body class="bg-gray-100 p-6">
   <div class="max-w-4xl mx-auto">

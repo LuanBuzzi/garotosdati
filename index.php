@@ -24,17 +24,6 @@
 </head>
 <body>
 
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light shadow">
-    <div class="container">
-      <a class="navbar-brand fw-bold" href="#">Hive</a>
-      <div class="d-flex">
-        <a href="login.php" class="btn btn-outline-primary me-2">Entrar</a>
-        <a href="registro.php" class="btn btn-primary">Registrar-se</a>
-      </div>
-    </div>
-  </nav>
-
   <!-- Carrossel -->
   <div id="carouselHive" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">

@@ -48,17 +48,10 @@ $categorias = $conn->query("SELECT * FROM categorias");
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
-        <div class="container">
-            <a class="navbar-brand fw-bold" href="#">Hive</a>
-            <div class="ms-auto d-flex align-items-center">
-                <span class="me-3 text-muted">Olá, <?= htmlspecialchars($nomeUsuario) ?>!</span>
-                <a href="logout.php" class="btn btn-outline-danger">Sair</a>
-            </div>
-        </div>
-    </nav>
+    <?php include 'navbar.php'; ?>
 
+
+    <br><br>
 <body class="bg-gray-100 p-8">
   <div class="max-w-xl mx-auto bg-white p-6 rounded shadow">
     <h2 class="text-xl font-semibold mb-4">Criar novo tópico</h2>

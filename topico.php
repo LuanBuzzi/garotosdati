@@ -36,16 +36,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body class="bg-gray-100 p-6">
-  <!-- Navbar -->
-  <nav class="bg-white shadow-sm mb-6 p-4 flex justify-between items-center">
-    <a href="#" class="text-xl font-bold">Hive</a>
-    <div class="text-sm text-gray-600 flex items-center gap-4">
-      <span>Olá, <?= htmlspecialchars($nomeUsuario) ?>!</span>
-      <a href="logout.php" class="text-red-500 hover:underline">Sair</a>
-    </div>
-  </nav>
+<body>
+  
+  <?php include 'navbar.php'; ?>
 
+  <br><br>
   <!-- Tópico -->
   <div class="max-w-3xl mx-auto bg-white p-6 rounded shadow">
     <h1 class="text-2xl font-bold mb-2"><?= htmlspecialchars($topico['titulo']) ?></h1>

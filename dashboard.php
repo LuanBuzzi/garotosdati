@@ -4,6 +4,7 @@ if (!isset($_SESSION['nome'])) {
     header("Location: login.php");
     exit();
 }
+
 $usuario = $_SESSION['nome'];
 
 ?>
@@ -13,7 +14,9 @@ $usuario = $_SESSION['nome'];
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Hive - Início</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+
     <style>
         .welcome-section {
             background: linear-gradient(to right, #f8f9fa, #e0f0ff);
@@ -31,15 +34,7 @@ $usuario = $_SESSION['nome'];
 </head>
 <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
-        <div class="container">
-            <a class="navbar-brand fw-bold" href="#">Hive</a>
-            <div class="ms-auto d-flex align-items-center">
-                <span class="me-3 text-muted">Olá, <?= htmlspecialchars($usuario) ?>!</span>
-                <a href="logout.php" class="btn btn-outline-danger">Sair</a>
-            </div>
-        </div>
-    </nav>
+    <?php include 'navbar.php' ?>
 
     <!-- Boas-vindas -->
     <section class="welcome-section text-center">
@@ -49,37 +44,54 @@ $usuario = $_SESSION['nome'];
         </div>
     </section>
 
-    <!-- Acesso rápido -->
-    <section class="py-5 bg-light">
-        <div class="container">
-            <div class="row text-center g-4">
-                <div class="col-md-4">
-                    <div class="card h-100 shadow-sm p-3">
-                        <div class="feature-icon mb-2">💬</div>
-                        <h5 class="fw-bold">Fórum</h5>
-                        <p>Participe de discussões por categoria e tire suas dúvidas.</p>
-                        <a href="forum.php" class="btn btn-primary mt-2">Ir para o Fórum</a>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card h-100 shadow-sm p-3">
-                        <div class="feature-icon mb-2">👥</div>
-                        <h5 class="fw-bold">Minha Conta</h5>
-                        <p>Veja e edite suas informações pessoais e preferências.</p>
-                        <a href="perfil.php" class="btn btn-outline-primary mt-2">Ver Perfil</a>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card h-100 shadow-sm p-3">
-                        <div class="feature-icon mb-2">🌍</div>
-                        <h5 class="fw-bold">Indicações e Serviços</h5>
-                        <p>Veja serviços úteis recomendados por outros migrantes.</p>
-                        <a href="servicos.php" class="btn btn-outline-primary mt-2">Explorar</a>
-                    </div>
-                </div>
-            </div>
+   
+
+<div id="controls-carousel" class="relative w-full" data-carousel="static">
+    <!-- Carousel wrapper -->
+    <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
+         <!-- Item 1 -->
+        <div class="hidden duration-700 ease-in-out" data-carousel-item>
+            <img src="images/hivelogo.png" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
         </div>
-    </section>
+        <!-- Item 2 -->
+        <div class="hidden duration-700 ease-in-out" data-carousel-item="active">
+            <img src="images/hivelogo.png" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+        </div>
+        <!-- Item 3 -->
+        <div class="hidden duration-700 ease-in-out" data-carousel-item>
+            <img src="images/hivelogo.png" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+        </div>
+        <!-- Item 4 -->
+        <div class="hidden duration-700 ease-in-out" data-carousel-item>
+            <img src="images/hivelogo.png" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+        </div>
+        <!-- Item 5 -->
+        <div class="hidden duration-700 ease-in-out" data-carousel-item>
+            <img src="images/hivelogo.png" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+        </div>
+    </div>
+    <!-- Slider controls -->
+    <button type="button" class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
+        <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+            <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/>
+            </svg>
+            <span class="sr-only">Previous</span>
+        </span>
+    </button>
+    <button type="button" class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
+        <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+            <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
+            </svg>
+            <span class="sr-only">Next</span>
+        </span>
+    </button>
+</div>
+
+
+
+
 
     <!-- Rodapé -->
     <footer class="bg-dark text-white text-center py-3">
@@ -88,6 +100,6 @@ $usuario = $_SESSION['nome'];
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>
