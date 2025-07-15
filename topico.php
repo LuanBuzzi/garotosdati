@@ -3,7 +3,6 @@ session_start();
 
 $conn = new mysqli("localhost", "root", "", "hivedb");
 
-// Verifica se usuário está logado
 if (!isset($_SESSION['nome'])) {
     header("Location: login.php");
     exit;

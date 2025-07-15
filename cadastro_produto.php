@@ -10,26 +10,7 @@ include 'navbar.php';
   <title>Cadastrar Produto - Hive</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
-  <style>
-    body {
-      background: linear-gradient(to bottom right, #eef2f7, #ffffff);
-    }
-    .form-container {
-      max-width: 700px;
-      margin: auto;
-      background-color: #fff;
-      padding: 40px;
-      border-radius: 16px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-    }
-    h1 {
-      font-size: 2.2rem;
-      font-weight: bold;
-      text-align: center;
-      color: #0d6efd;
-      margin-bottom: 30px;
-    }
-  </style>
+  <link rel="stylesheet" href="css/cadastro.produto.css">
 </head>
 
 <body class="py-5">

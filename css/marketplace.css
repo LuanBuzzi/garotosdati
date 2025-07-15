@@ -10,8 +10,9 @@
 }
 
 .truncate-text {
-    display: -webkit-box;
-    -webkit-line-clamp: 3; /* número de linhas que quer mostrar */
-    -webkit-box-orient: vertical;
     overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
 }

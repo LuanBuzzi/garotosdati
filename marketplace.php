@@ -11,17 +11,7 @@ include 'navbar.php';
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="css/marketplace.css">
     <style>
-        .truncate-text {
-            overflow: hidden;
-            text-overflow: ellipsis;
-            display: -webkit-box;
-            -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;
-        }
-        .card:hover {
-            transform: scale(1.02);
-            transition: 0.3s ease-in-out;
-        }
+
     </style>
 </head>
 

@@ -1,0 +1,21 @@
+#btnCriarServico {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    padding: 0;
+    font-size: 28px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.modal-header {
+    background-color: darkblue;
+    color: white;
+}
+
+.card-img-top {
+    object-fit: cover;
+    height: 180px;
+}

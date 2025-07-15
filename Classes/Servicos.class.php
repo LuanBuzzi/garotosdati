@@ -2,7 +2,6 @@
 session_start();
 $conn = new mysqli("localhost", "root", "", "hivedb");
 
-// Verifica se o usuário está logado
 if (!isset($_SESSION['nome'])) {
     header("Location: login.php");
     exit;
@@ -10,7 +9,7 @@ if (!isset($_SESSION['nome'])) {
 
 $nomeUsuario = $_SESSION['nome'];
 
-// Processa o formulário ao receber POST
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $titulo = $_POST["titulo"];
     $descricao = $_POST["descricao"];
@@ -19,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $contato = $_POST["contato"];
     $autor = $nomeUsuario;
 
-    // Lida com upload de anexo (imagem ou documento)
+
     $anexo = "";
     if (!empty($_FILES["anexo"]["name"])) {
         $pastaUpload = "uploads/";

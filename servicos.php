@@ -7,34 +7,9 @@ include 'Classes/Servicos.class.php';
 <head>
     <meta charset="UTF-8" />
     <title>Serviços Freelancers</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="css/servicos.css">
     <?php include 'navbar.php'; ?>
-
-    <style>
-        /* Botão pequeno e discreto */
-        #btnCriarServico {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            padding: 0;
-            font-size: 28px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-        }
-
-        /* Modal melhorado */
-        .modal-header {
-            background-color: #198754;
-            color: white;
-        }
-
-        .card-img-top {
-            object-fit: cover;
-            height: 180px;
-        }
-    </style>
 </head>
 <body class="bg-light">
 

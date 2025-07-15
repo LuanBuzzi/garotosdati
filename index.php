@@ -6,18 +6,7 @@
   <title>Hive - Comunidade para Migrantes</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
-  <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(to bottom right, #eef2ff, #c7d2fe);
-    }
-    .carousel-caption {
-      background: rgba(0,0,0,0.5);
-      padding: 1rem 1.5rem;
-      border-radius: 0.5rem;
-      max-width: 300px;
-    }
-  </style>
+  <link rel="stylesheet" href="css/index.css">
 </head>
 <body class="min-h-screen flex flex-col">
 
