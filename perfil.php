@@ -34,6 +34,17 @@ $stmt->bind_param("s", $usuario_logado);
 $stmt->execute();
 $resultado = $stmt->get_result();
 $usuario = $resultado->fetch_assoc();
+
+// URL do placeholder externo
+$imagem_placeholder = "https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png";
+
+// Verifica se foto_perfil existe e o arquivo está acessível no servidor
+// Se não, usa o placeholder externo
+if (!$usuario['foto_perfil'] || !file_exists($usuario['foto_perfil'])) {
+    $fotoPerfil = $imagem_placeholder;
+} else {
+    $fotoPerfil = $usuario['foto_perfil'];
+}
 ?>
 
 <!DOCTYPE html>
@@ -54,7 +65,7 @@ $usuario = $resultado->fetch_assoc();
 
     <!-- Foto e Upload -->
     <div class="flex flex-col items-center mb-8">
-      <img src="<?= $usuario['foto_perfil'] ? htmlspecialchars($usuario['foto_perfil']) : 'https://via.placeholder.com/150' ?>" 
+      <img src="<?= htmlspecialchars($fotoPerfil) ?>" 
            alt="Foto de perfil"
            class="w-36 h-36 rounded-full border-4 border-indigo-500 object-cover shadow-md mb-4">
 

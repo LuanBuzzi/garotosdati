@@ -1,100 +1,118 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Hive - Comunidade para Migrantes</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
   <style>
     body {
-      font-family: 'Segoe UI', sans-serif;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to bottom right, #eef2ff, #c7d2fe);
     }
-
     .carousel-caption {
-      background: rgba(0, 0, 0, 0.5);
-      border-radius: 8px;
-      padding: 1rem;
-    }
-
-    .feature-icon {
-      font-size: 2rem;
-      color: #0d6efd;
+      background: rgba(0,0,0,0.5);
+      padding: 1rem 1.5rem;
+      border-radius: 0.5rem;
+      max-width: 300px;
     }
   </style>
 </head>
-<body>
+<body class="min-h-screen flex flex-col">
 
-  <!-- Carrossel -->
-  <div id="carouselHive" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img src="https://images.unsplash.com/photo-1515162305281-9d51896c234f" class="d-block w-100" style="max-height: 550px; object-fit: cover;" alt="Conexões">
-        <div class="carousel-caption">
-          <h3>Bem-vindo à Hive</h3>
-          <p>Conectando migrantes com suporte e oportunidades.</p>
-        </div>
+  <!-- Navbar -->
+  <nav class="bg-indigo-700 fixed w-full top-0 z-50 shadow">
+    <div class="container mx-auto px-4 flex justify-between items-center h-16">
+      <a href="#" class="text-white text-2xl font-bold">Hive</a>
+      <div class="hidden md:flex space-x-6 items-center">
+        <a href="#sobre" class="text-indigo-100 hover:text-white font-semibold transition">Sobre</a>
+        <a href="#funcionalidades" class="text-indigo-100 hover:text-white font-semibold transition">Funcionalidades</a>
+        <a href="login.php" class="px-4 py-2 border border-white text-white rounded hover:bg-white hover:text-indigo-700 transition">Entrar</a>
+        <a href="registro.php" class="px-4 py-2 bg-yellow-400 text-indigo-900 font-bold rounded hover:bg-yellow-300 transition">Cadastrar-se</a>
       </div>
-      <div class="carousel-item">
-        <img src="https://images.unsplash.com/photo-1517602302552-471fe67acf66" class="d-block w-100" style="max-height: 550px; object-fit: cover;" alt="Comunidade">
-        <div class="carousel-caption">
-          <h3>Fórum de Apoio</h3>
-          <p>Tire dúvidas, compartilhe experiências e encontre ajuda por categorias.</p>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <img src="https://images.unsplash.com/photo-1556740749-887f6717d7e4" class="d-block w-100" style="max-height: 550px; object-fit: cover;" alt="Ferramentas">
-        <div class="carousel-caption">
-          <h3>Ferramentas úteis</h3>
-          <p>Encontre indicações, profissionais confiáveis e serviços essenciais.</p>
-        </div>
-      </div>
+      <!-- Mobile menu button -->
+      <button id="btn-mobile-menu" class="md:hidden text-indigo-100 focus:outline-none">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16"/></svg>
+      </button>
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselHive" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon"></span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselHive" data-bs-slide="next">
-      <span class="carousel-control-next-icon"></span>
-    </button>
-  </div>
-
-  <!-- Seção de Apresentação -->
-  <section class="py-5 text-center">
-    <div class="container">
-      <h2 class="fw-bold">O que é o Hive?</h2>
-      <p class="lead">Hive é uma plataforma voltada para migrantes em busca de apoio, conexões e informações úteis para sua nova jornada em outro país.</p>
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-indigo-700 px-4 pb-4">
+      <a href="#sobre" class="block py-2 text-indigo-100 hover:text-white font-semibold transition">Sobre</a>
+      <a href="#funcionalidades" class="block py-2 text-indigo-100 hover:text-white font-semibold transition">Funcionalidades</a>
+      <a href="login.php" class="block py-2 px-4 border border-white text-white rounded hover:bg-white hover:text-indigo-700 transition mt-2 text-center">Entrar</a>
+      <a href="registro.php" class="block py-2 px-4 bg-yellow-400 text-indigo-900 font-bold rounded hover:bg-yellow-300 transition mt-2 text-center">Cadastrar-se</a>
     </div>
-  </section>
+  </nav>
 
-  <!-- Funcionalidades -->
-  <section class="py-5 bg-light">
-    <div class="container">
-      <div class="row text-center">
-        <div class="col-md-4 mb-4">
-          <div class="feature-icon mb-2">🗣️</div>
-          <h5 class="fw-bold">Fórum por Categorias</h5>
-          <p>Participe de discussões sobre visto, idioma, moradia e integração cultural.</p>
-        </div>
-        <div class="col-md-4 mb-4">
-          <div class="feature-icon mb-2">🧭</div>
-          <h5 class="fw-bold">Indicações confiáveis</h5>
-          <p>Descubra profissionais indicados por outros migrantes, como advogados, médicos e tradutores.</p>
-        </div>
-        <div class="col-md-4 mb-4">
-          <div class="feature-icon mb-2">🔒</div>
-          <h5 class="fw-bold">Cadastro e Login Seguro</h5>
-          <p>Segurança com login, criptografia de senha e controle de acesso.</p>
+  <main class="flex-grow pt-20">
+
+    <!-- Carousel -->
+    <section class="relative max-w-6xl mx-auto px-4 select-none">
+      <div class="overflow-hidden rounded-lg shadow-lg relative">
+        <!-- Slides -->
+        <div class="carousel-slide relative w-full h-72 md:h-96">
+          <img src="images/comunidade2.jpg" alt="Conexões" class="w-full h-full object-cover rounded-lg" />
+          <div class="absolute bottom-6 left-6 carousel-caption text-white">
+            <h3 class="text-xl font-bold mb-1">Bem-vindo à Hive</h3>
+            <p class="mb-3">Conectando migrantes com suporte e oportunidades.</p>
+            <a href="registro.php" class="inline-block bg-indigo-600 px-4 py-2 rounded text-white hover:bg-indigo-700 transition">Quero fazer parte</a>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+      <!-- You can add JS for real carousel or keep it static for now -->
+    </section>
 
-  <!-- Rodapé -->
-  <footer class="bg-dark text-white text-center py-4">
-    <div class="container">
-      <p class="mb-0">© 2025 Hive. Todos os direitos reservados.</p>
+    <!-- Sobre -->
+    <section id="sobre" class="py-16 max-w-4xl mx-auto px-4 text-center">
+      <h2 class="text-4xl font-extrabold text-indigo-700 mb-6">O que é o Hive?</h2>
+      <p class="text-lg text-gray-700 leading-relaxed">Hive é uma plataforma acolhedora feita para migrantes que buscam apoio, conexões e informações práticas em sua nova jornada.</p>
+    </section>
+
+    <!-- Funcionalidades -->
+    <section id="funcionalidades" class="bg-indigo-50 py-16">
+      <div class="max-w-6xl mx-auto px-4 grid gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
+        <div class="bg-white rounded-xl shadow p-6 hover:shadow-xl transition">
+          <div class="text-4xl mb-4">🗣️</div>
+          <h3 class="text-xl font-semibold text-indigo-700 mb-2">Fórum por Categorias</h3>
+          <p class="text-gray-600 mb-4">Participe de discussões sobre visto, idioma, moradia e integração cultural.</p>
+          <a href="forum.php" class="inline-block text-indigo-600 font-semibold hover:underline">Acessar fórum</a>
+        </div>
+        <div class="bg-white rounded-xl shadow p-6 hover:shadow-xl transition">
+          <div class="text-4xl mb-4">🧭</div>
+          <h3 class="text-xl font-semibold text-indigo-700 mb-2">Indicações confiáveis</h3>
+          <p class="text-gray-600 mb-4">Veja indicações de migrantes sobre médicos, advogados, tradutores e mais.</p>
+          <a href="forum.php" class="inline-block text-indigo-600 font-semibold hover:underline">Ver indicações</a>
+        </div>
+        <div class="bg-white rounded-xl shadow p-6 hover:shadow-xl transition">
+          <div class="text-4xl mb-4">🔒</div>
+          <h3 class="text-xl font-semibold text-indigo-700 mb-2">Cadastro e Login Seguro</h3>
+          <p class="text-gray-600 mb-4">Criptografia de senha e controle de acesso garantem sua segurança.</p>
+          <a href="login.php" class="inline-block text-indigo-600 font-semibold hover:underline">Fazer login</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-indigo-700 text-indigo-100 text-center py-6">
+    <p>© 2025 Hive. Todos os direitos reservados.</p>
+    <div class="flex justify-center space-x-6 mt-2 text-2xl">
+      <a href="#" aria-label="Facebook" class="hover:text-white"><i class="bi bi-facebook"></i></a>
+      <a href="#" aria-label="Instagram" class="hover:text-white"><i class="bi bi-instagram"></i></a>
+      <a href="#" aria-label="Twitter" class="hover:text-white"><i class="bi bi-twitter-x"></i></a>
     </div>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Mobile menu toggle
+    const btnMobileMenu = document.getElementById('btn-mobile-menu');
+    const mobileMenu = document.getElementById('mobile-menu');
+    btnMobileMenu.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.js"></script>
 </body>
 </html>

@@ -1,72 +1,98 @@
 <?php
-session_start();
-$conn = new mysqli("localhost", "root", "", "hivedb");
-
-$usuario_id = $_SESSION['usuario_id'];
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $titulo = $_POST["titulo"];
-    $descricao = $_POST["descricao"];
-    $preco = $_POST["preco"];
-    $categoria = $_POST["categoria_id"];
-
-    $imagem = null;
-    if (!empty($_FILES["imagem"]["name"])) {
-        $upload_dir = "uploads/";
-        $imagem = $upload_dir . basename($_FILES["imagem"]["name"]);
-        move_uploaded_file($_FILES["imagem"]["tmp_name"], $imagem);
-    }
-
-    $stmt = $conn->prepare("INSERT INTO produtos (titulo, descricao, preco, categoria_id, usuario_id, imagem) VALUES (?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("ssdiis", $titulo, $descricao, $preco, $categoria, $usuario_id, $imagem);
-    $stmt->execute();
-
-    header("Location: marketplace.php");
-    exit;
-}
-
-$categorias = $conn->query("SELECT * FROM categorias");
+include 'Classes/cadastrar.produto.php';
+include 'navbar.php';
 ?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8" />
-    <title>Cadastrar Produto</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <meta charset="UTF-8" />
+  <title>Cadastrar Produto - Hive</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+  <style>
+    body {
+      background: linear-gradient(to bottom right, #eef2f7, #ffffff);
+    }
+    .form-container {
+      max-width: 700px;
+      margin: auto;
+      background-color: #fff;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      font-size: 2.2rem;
+      font-weight: bold;
+      text-align: center;
+      color: #0d6efd;
+      margin-bottom: 30px;
+    }
+  </style>
 </head>
-<body class="container py-5">
 
-<h1>Cadastrar Produto</h1>
+<body class="py-5">
 
-<form method="post" enctype="multipart/form-data">
-    <div class="mb-3">
-        <label for="titulo" class="form-label">Título</label>
-        <input type="text" class="form-control" name="titulo" id="titulo" required />
-    </div>
-    <div class="mb-3">
+  <div class="form-container">
+    <h1><i class="bi bi-box-seam-fill"></i> Cadastrar Produto</h1>
+
+    <?php if ($erro_upload): ?>
+      <div class="alert alert-danger text-center" role="alert">
+        <?= htmlspecialchars($erro_upload) ?>
+      </div>
+    <?php endif; ?>
+
+    <form method="post" enctype="multipart/form-data" novalidate>
+      <div class="mb-3">
+        <label for="titulo" class="form-label">Título do Produto</label>
+        <input type="text" class="form-control" name="titulo" id="titulo" required
+               placeholder="Ex: Sapato de Couro"
+               value="<?= isset($titulo) ? htmlspecialchars($titulo) : '' ?>" />
+      </div>
+
+      <div class="mb-3">
         <label for="descricao" class="form-label">Descrição</label>
-        <textarea class="form-control" name="descricao" id="descricao" rows="4" required></textarea>
-    </div>
-    <div class="mb-3">
+        <textarea class="form-control" name="descricao" id="descricao" rows="4" required
+                  placeholder="Descreva o produto com detalhes..."><?= isset($descricao) ? htmlspecialchars($descricao) : '' ?></textarea>
+      </div>
+
+      <div class="mb-3">
         <label for="preco" class="form-label">Preço (R$)</label>
-        <input type="number" step="0.01" min="0" class="form-control" name="preco" id="preco" required />
-    </div>
-    <div class="mb-3">
+        <input type="number" step="0.01" min="0" class="form-control" name="preco" id="preco" required
+               placeholder="Ex: 59.90"
+               value="<?= isset($preco) ? htmlspecialchars($preco) : '' ?>" />
+      </div>
+
+      <div class="mb-3">
         <label for="categoria" class="form-label">Categoria</label>
         <select name="categoria_id" id="categoria" class="form-select" required>
-            <option value="">Selecione...</option>
-            <?php while ($cat = $categorias->fetch_assoc()) { ?>
-                <option value="<?= $cat['id'] ?>"><?= htmlspecialchars($cat['nome']) ?></option>
-            <?php } ?>
+          <option value="">Selecione...</option>
+          <?php
+          // Reexecutar query para garantir que os dados não estejam esgotados
+          $categorias = $conn->query("SELECT id, nome FROM categorias_marketplace ORDER BY nome");
+
+          while ($cat = $categorias->fetch_assoc()) { ?>
+            <option value="<?= $cat['id'] ?>" <?= (isset($categoria) && $categoria == $cat['id']) ? 'selected' : '' ?>>
+              <?= htmlspecialchars($cat['nome']) ?>
+            </option>
+          <?php } ?>
         </select>
-    </div>
-    <div class="mb-3">
+      </div>
+
+      <div class="mb-3">
         <label for="imagem" class="form-label">Imagem do Produto</label>
         <input type="file" class="form-control" name="imagem" id="imagem" accept="image/*" />
-    </div>
-    <button type="submit" class="btn btn-primary">Cadastrar Produto</button>
-</form>
+        <div class="form-text">Opcional. Tipos permitidos: jpg, jpeg, png, gif, webp. Máximo 5MB.</div>
+      </div>
+
+      <div class="d-grid mt-4">
+        <button type="submit" class="btn btn-primary btn-lg">
+          <i class="bi bi-upload"></i> Publicar Produto
+        </button>
+      </div>
+    </form>
+  </div>
 
 </body>
 </html>

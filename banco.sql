@@ -77,7 +77,7 @@ CREATE TABLE produtos (
     descricao TEXT NOT NULL,
     preco DECIMAL(10,2) NOT NULL,
     categoria_id INT NOT NULL,
-    usuario_id INT NOT NULL, -- quem cadastrou o produto
+    usuario_id INT NOT NULL,
     imagem VARCHAR(255) DEFAULT NULL,
     criado_em DATETIME DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (categoria_id) REFERENCES categorias(id),

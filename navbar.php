@@ -1,8 +1,12 @@
 <?php
 
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
 $conn = new mysqli("localhost", "root", "", "hivedb");
 
-$fotoPerfil = 'https://via.placeholder.com/40';
+$fotoPerfil = 'https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png';
 $pagina_atual = basename($_SERVER['PHP_SELF']);
 
 if (isset($_SESSION['nome'])) {
