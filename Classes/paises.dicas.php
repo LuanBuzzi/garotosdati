@@ -36,6 +36,30 @@ $dicas_por_pais = [
             'titulo' => 'Documentação Essencial',
             'descricao' => 'Para residência legal, tenha o NIE (Número de Identificação de Estrangeiro). É essencial para abrir conta, alugar imóvel e trabalhar legalmente.',
         ],
+        [
+            'titulo' => 'Sistema de Saúde na Espanha',
+            'descricao' => 'Se você estiver registrado no sistema público de saúde (Seguridad Social), você terá acesso a consultas gratuitas e farmácias com desconto.',
+        ],
+        [
+            'titulo' => 'Transporte Público',
+            'descricao' => 'Use o cartão de transporte mensal (Abono Transportes) para economizar em metrôs, trens e ônibus em Madri e outras cidades.',
+        ],
+        [
+            'titulo' => 'Documentação Essencial',
+            'descricao' => 'Para residência legal, tenha o NIE (Número de Identificação de Estrangeiro). É essencial para abrir conta, alugar imóvel e trabalhar legalmente.',
+        ],
+        [
+            'titulo' => 'Sistema de Saúde na Espanha',
+            'descricao' => 'Se você estiver registrado no sistema público de saúde (Seguridad Social), você terá acesso a consultas gratuitas e farmácias com desconto.',
+        ],
+        [
+            'titulo' => 'Transporte Público',
+            'descricao' => 'Use o cartão de transporte mensal (Abono Transportes) para economizar em metrôs, trens e ônibus em Madri e outras cidades.',
+        ],
+        [
+            'titulo' => 'Documentação Essencial',
+            'descricao' => 'Para residência legal, tenha o NIE (Número de Identificação de Estrangeiro). É essencial para abrir conta, alugar imóvel e trabalhar legalmente.',
+        ],
     ],
     'Brasil' => [
         [

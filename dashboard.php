@@ -68,7 +68,7 @@ $usuario = $_SESSION['nome'];
     <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition">
       <h3 class="text-xl font-bold text-indigo-700 mb-2">Serviços 📋</h3>
       <p class="text-gray-600 mb-4">Encontre serviços locais úteis: documentação, apoio psicológico, entre outros.</p>
-      <a href="#" class="inline-block bg-indigo-600 text-white px-4 py-2 rounded-full hover:bg-indigo-700 transition">Consultar</a>
+      <a href="servicos.php" class="inline-block bg-indigo-600 text-white px-4 py-2 rounded-full hover:bg-indigo-700 transition">Consultar</a>
     </div>
 
     <!-- Card 6 -->

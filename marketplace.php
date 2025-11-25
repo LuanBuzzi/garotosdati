@@ -81,39 +81,64 @@ include 'navbar.php';
                             </div>
                         </div>
 
-                        <!-- Modal Expandido -->
-                        <div class="modal fade" id="<?= $modalId ?>" tabindex="-1" aria-labelledby="<?= $modalId ?>Label" aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered modal-lg">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title"><?= htmlspecialchars($produto['titulo']) ?></h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div class="row">
-                                            <div class="col-md-5">
-                                                <?php if ($produto['imagem'] && file_exists($produto['imagem'])): ?>
-                                                    <img src="<?= htmlspecialchars($produto['imagem']) ?>" class="img-fluid rounded mb-3" alt="Imagem do produto">
-                                                <?php else: ?>
-                                                    <img src="https://via.placeholder.com/300x300?text=Sem+Imagem" class="img-fluid rounded mb-3" alt="Sem imagem">
-                                                <?php endif; ?>
-                                            </div>
-                                            <div class="col-md-7">
-                                                <p><strong>Descrição:</strong><br><?= nl2br(htmlspecialchars($produto['descricao'])) ?></p>
-                                                <p><strong>Preço:</strong> R$ <?= number_format($produto['preco'], 2, ',', '.') ?></p>
-                                                <p><strong>Categoria:</strong> <?= htmlspecialchars($produto['categoria_nome']) ?></p>
-                                                <p><strong>Vendedor:</strong> <?= htmlspecialchars($produto['usuario_nome']) ?></p>
-                                                <p><strong>Publicado em:</strong> <?= date('d/m/Y', strtotime($produto['criado_em'])) ?></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button class="btn btn-outline-primary" disabled>Entrar em contato</button>
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+     <!-- Modal Expandido -->
+<div class="modal fade" id="<?= $modalId ?>" tabindex="-1" aria-labelledby="<?= $modalId ?>Label" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content border-0 rounded-3 shadow-lg">
+      <div class="modal-body p-0">
+        <div class="row g-0">
+          <!-- Imagem do produto -->
+          <div class="col-lg-7 bg-dark d-flex align-items-center justify-content-center">
+            <?php if ($produto['imagem'] && file_exists($produto['imagem'])): ?>
+              <img src="<?= htmlspecialchars($produto['imagem']) ?>" class="img-fluid rounded-start" alt="Imagem do produto" style="max-height: 90vh; object-fit: contain;">
+            <?php else: ?>
+              <img src="https://via.placeholder.com/600x600?text=Sem+Imagem" class="img-fluid rounded-start" alt="Sem imagem" style="max-height: 90vh; object-fit: contain;">
+            <?php endif; ?>
+          </div>
+
+          <!-- Informações -->
+          <div class="col-lg-5 p-4 d-flex flex-column">
+            <!-- Botão fechar -->
+            <button type="button" class="btn-close position-absolute top-0 end-0 m-3" data-bs-dismiss="modal" aria-label="Fechar"></button>
+
+            <!-- Nome do produto e preço -->
+            <h3 class="fw-bold mb-2"><?= htmlspecialchars($produto['titulo']) ?></h3>
+            <p class="fs-4 text-success fw-semibold mb-3">R$ <?= number_format($produto['preco'], 2, ',', '.') ?></p>
+
+            <!-- Info vendedor -->
+            <div class="d-flex align-items-center mb-4">
+              <?php if (!empty($produto['foto_perfil']) && file_exists($produto['foto_perfil'])): ?>
+                <img src="<?= htmlspecialchars($produto['foto_perfil']) ?>" alt="Foto do vendedor" class="rounded-circle me-3" width="50" height="50" style="object-fit: cover;">
+              <?php else: ?>
+                <img src="https://via.placeholder.com/50?text=U" alt="Foto do vendedor" class="rounded-circle me-3" width="50" height="50">
+              <?php endif; ?>
+              <div>
+                <p class="mb-0 fw-semibold"><?= htmlspecialchars($produto['usuario_nome']) ?></p>
+                <small class="text-muted">Vendedor</small>
+              </div>
+            </div>
+
+            <!-- Descrição -->
+            <p class="text-muted mb-3"><?= nl2br(htmlspecialchars($produto['descricao'])) ?></p>
+
+            <!-- Detalhes adicionais -->
+            <ul class="list-unstyled small text-muted mb-4">
+              <li><strong>Categoria:</strong> <?= htmlspecialchars($produto['categoria_nome']) ?></li>
+              <li><strong>Publicado em:</strong> <?= date('d/m/Y', strtotime($produto['criado_em'])) ?></li>
+            </ul>
+
+            <!-- Ações -->
+            <div class="mt-auto d-flex gap-2">
+              <a href="contato.php?vendedor=<?= $produto['usuario_id'] ?>" class="btn btn-primary flex-fill">💬 Entrar em contato</a>
+              <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Fechar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
                     <?php endwhile; ?>
                 <?php endif; ?>
             </div>

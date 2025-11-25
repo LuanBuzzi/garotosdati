@@ -6,12 +6,16 @@ $conn = new mysqli("localhost", "root", "", "hivedb");
 $busca = $_GET['busca'] ?? '';
 $categoria_filtro = $_GET['categoria'] ?? '';
 
-// Buscar categorias para filtro lateral (agora na nova tabela)
+// Buscar categorias para filtro lateral (nova tabela marketplace)
 $categorias_result = $conn->query("SELECT id, nome FROM categorias_marketplace ORDER BY nome");
 
 // Query base
 $sql = "
-    SELECT p.*, cm.nome AS categoria_nome, u.nome AS usuario_nome
+    SELECT 
+        p.*, 
+        cm.nome AS categoria_nome, 
+        u.nome AS usuario_nome, 
+        u.foto_perfil
     FROM produtos p
     JOIN categorias_marketplace cm ON p.categoria_id = cm.id
     JOIN usuarios u ON p.usuario_id = u.id

@@ -29,6 +29,8 @@ include 'Classes/navbar.config.php';
           <a href="servicos.php" class="<?= $pagina_atual === 'servicos.php' ? 'bg-gray-900 text-white' : 'text-gray-300 hover:text-white' ?> px-3 py-2 rounded-md text-sm font-medium">Serviços</a>
           <a href="marketplace.php" class="<?= $pagina_atual === 'marketplace.php' ? 'bg-gray-900 text-white' : 'text-gray-300 hover:text-white' ?> px-3 py-2 rounded-md text-sm font-medium">Marketplace</a>
           <a href="dicas.php" class="<?= $pagina_atual === 'dicas.php' ? 'bg-gray-900 text-white' : 'text-gray-300 hover:text-white' ?> px-3 py-2 rounded-md text-sm font-medium">Dicas</a>
+          <a href="mapa.php" class="<?= $pagina_atual === 'dicas.php' ? 'bg-gray-900 text-white' : 'text-gray-300 hover:text-white' ?> px-3 py-2 rounded-md text-sm font-medium">Mapa</a>
+          <a href="Contato.php" class="<?= $pagina_atual === 'Contato.php' ? 'bg-gray-900 text-white' : 'text-gray-300 hover:text-white' ?> px-3 py-2 rounded-md text-sm font-medium">Contato</a>
         </div>
 
         <!-- Profile and Notifications -->
