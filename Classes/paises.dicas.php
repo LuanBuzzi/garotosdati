@@ -10,7 +10,6 @@ if (!isset($_SESSION['nome'])) {
     exit;
 }
 
-// Busca o país de residência do usuário logado
 $usuario_logado = $_SESSION['nome'];
 
 $stmt = $conn->prepare("SELECT pais_residencia FROM usuarios WHERE nome = ?");

@@ -10,7 +10,7 @@ if (!isset($_SESSION['nome'])) {
 
 $usuario_logado = $_SESSION['nome'];
 
-// Processar upload de imagem
+
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_FILES["nova_foto"])) {
     $foto = $_FILES["nova_foto"];
     if ($foto["error"] === UPLOAD_ERR_OK) {
@@ -36,11 +36,10 @@ $stmt->execute();
 $resultado = $stmt->get_result();
 $usuario = $resultado->fetch_assoc();
 
-// URL do placeholder externo
+
 $imagem_placeholder = "https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png";
 
-// Verifica se foto_perfil existe e o arquivo está acessível no servidor
-// Se não, usa o placeholder externo
+
 if (!$usuario['foto_perfil'] || !file_exists($usuario['foto_perfil'])) {
     $fotoPerfil = $imagem_placeholder;
 } else {

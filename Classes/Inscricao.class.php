@@ -26,7 +26,6 @@ class Inscricao {
         $this->anexo = $anexo;
     }
 
-    // Getters
     public function getId(){ 
         return $this->id;}
 
@@ -54,7 +53,6 @@ class Inscricao {
     public function getAnexo() {
     return $this->anexo; }
 
-    // Setters
     public function setNome($nome) {
         if (empty($nome)) throw new Exception("Nome obrigatório");
         $this->nome = $nome;
@@ -89,7 +87,6 @@ class Inscricao {
         $this->anexo = $anexo;
     }
 
-    // Inserção no banco
     public function inserir(): bool {
         $sql = "INSERT INTO inscricao 
                 (nome, email, data_nascimento, telefone, campus, matricula, cpf, anexo)

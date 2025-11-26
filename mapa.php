@@ -7,11 +7,10 @@
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-  <!-- CSS do Leaflet -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
   
-  <!-- Script do Leaflet -->
+
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
@@ -31,7 +30,7 @@
   <div id="map"></div>
 
   <?php
-    // Etapa 4: carregar pontos do banco
+
     $conn = new mysqli("localhost", "root", "", "hivedb");
     $result = $conn->query("SELECT * FROM pontos_interesse");
 
@@ -45,19 +44,19 @@
   <script>
     const map = L.map('map').setView([40.416598, -3.703814], 25);
 
-    // Adiciona mapa base
+
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '&copy; OpenStreetMap contributors'
     }).addTo(map);
 
-    // Etapa 4: adicionar pontos existentes
+
     const pontosSalvos = <?php echo json_encode($dados); ?>;
     pontosSalvos.forEach(p => {
       L.marker([p.lat, p.lng]).addTo(map)
         .bindPopup(`<strong>${p.titulo}</strong><br>${p.descricao}`);
     });
 
-    // Etapa 1: clique no mapa para adicionar novo ponto
+
     map.on('click', function(e) {
       const lat = e.latlng.lat;
       const lng = e.latlng.lng;

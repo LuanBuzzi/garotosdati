@@ -9,7 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $pais_origem = trim($_POST["pais_origem"]);
     $pais_residencia = trim($_POST["pais_residencia"]);
 
-    // Exemplo: a tabela 'usuarios' precisa ter as colunas pais_origem e pais_residencia
+
     $stmt = $conn->prepare("INSERT INTO usuarios (nome, email, senha, pais_origem, pais_residencia) VALUES (?, ?, ?, ?, ?)");
     $stmt->bind_param("sssss", $nome, $email, $senha, $pais_origem, $pais_residencia);
 

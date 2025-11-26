@@ -50,7 +50,7 @@ include 'navbar.php';
         <select name="categoria_id" id="categoria" class="form-select" required>
           <option value="">Selecione...</option>
           <?php
-          // Reexecutar query para garantir que os dados não estejam esgotados
+   
           $categorias = $conn->query("SELECT id, nome FROM categorias_marketplace ORDER BY nome");
 
           while ($cat = $categorias->fetch_assoc()) { ?>

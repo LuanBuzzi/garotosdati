@@ -7,8 +7,6 @@ if (!isset($_SESSION['nome'])) {
 
 $usuario = $_SESSION['nome'];
 
-// Aqui você poderia tratar envio do formulário com PHPMailer ou mail()
-// Mas vamos deixar só a interface por enquanto
 ?>
 
 <!DOCTYPE html>
@@ -24,14 +22,14 @@ $usuario = $_SESSION['nome'];
 
   <?php include 'navbar.php'; ?>
 
-  <!-- Cabeçalho -->
+
   <section class="text-center py-12">
     <h1 class="text-4xl md:text-5xl font-extrabold text-indigo-700">Entre em contato 📞</h1>
     <p class="mt-4 text-lg text-gray-600 max-w-xl mx-auto">Tem dúvidas, sugestões ou precisa de ajuda? Fale com a equipe Hive.</p>
   </section>
 
   <div class="max-w-6xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-12 pb-20">
-    <!-- Formulário -->
+
     <div class="bg-white p-8 rounded-xl shadow-md">
       <h2 class="text-2xl font-bold text-indigo-700 mb-6">Envie uma mensagem</h2>
       <form action="#" method="POST" class="space-y-4">
@@ -51,7 +49,7 @@ $usuario = $_SESSION['nome'];
       </form>
     </div>
 
-    <!-- Informações de contato -->
+
     <div class="bg-white p-8 rounded-xl shadow-md">
       <h2 class="text-2xl font-bold text-indigo-700 mb-6">Nossos canais</h2>
       <ul class="space-y-6 text-gray-700">

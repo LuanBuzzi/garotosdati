@@ -142,7 +142,6 @@ INSERT INTO `usuarios` (`id`, `nome`, `email`, `senha`, `data_registro`, `pais_o
 (6, 'Deanderson', 'de@de.com', '$2y$10$3/BRBEkbgtGs5Xd/9comYOC43856.olEf6mDAexkVDwmyd1BwPgb.', '2025-07-15 09:18:38', 'África do Sul', 'Espanha', 'uploads/687647898db2e.png'),
 (7, 'Inácio', 'inacio@gmail.com', '$2y$10$um8fIglxBf3hQUscOtK9ve.AscK3IRNpmezdQCLMcJ4iloqKCjbT.', '2025-07-15 10:07:11', 'Alemanha', 'Itália', 'uploads/6876633784dc6.jpeg');
 
--- Restrições de integridade
 ALTER TABLE `produtos`
   ADD CONSTRAINT `fk_produtos_categorias_marketplace` FOREIGN KEY (`categoria_id`) REFERENCES `categorias_marketplace` (`id`),
   ADD CONSTRAINT `produtos_ibfk_1` FOREIGN KEY (`categoria_id`) REFERENCES `categorias` (`id`),

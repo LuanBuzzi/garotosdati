@@ -20,7 +20,6 @@ include 'navbar.php';
 <div class="container-fluid py-4">
     <div class="row">
 
-        <!-- Sidebar de categorias -->
         <nav id="sidebar" class="col-md-3 col-lg-2 d-none d-md-block bg-white rounded shadow-sm p-3 me-3">
             <h5 class="mb-3">Categorias</h5>
             <ul class="list-group">
@@ -33,16 +32,16 @@ include 'navbar.php';
             </ul>
         </nav>
 
-        <!-- Conteúdo principal -->
+
         <main class="col-md-9 col-lg-9">
             <h1 class="mb-4">Marketplace</h1>
 
-            <!-- Botão Criar Produto -->
+
             <div class="mb-4 d-flex justify-content-end">
                 <a href="cadastro_produto.php" class="btn btn-success">+ Criar Produto</a>
             </div>
 
-            <!-- Formulário de busca -->
+
             <form method="GET" class="mb-4 d-flex" role="search" aria-label="Busca no marketplace">
                 <input type="text" name="busca" class="form-control me-2" placeholder="Buscar produtos ou categorias..." value="<?= htmlspecialchars($busca) ?>" />
                 <?php if ($categoria_filtro): ?>
@@ -54,7 +53,7 @@ include 'navbar.php';
                 <?php endif; ?>
             </form>
 
-            <!-- Grid dos produtos -->
+
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
                 <?php if ($result->num_rows === 0): ?>
                     <p class="text-muted">Nenhum produto encontrado.</p>
@@ -81,13 +80,11 @@ include 'navbar.php';
                             </div>
                         </div>
 
-     <!-- Modal Expandido -->
 <div class="modal fade" id="<?= $modalId ?>" tabindex="-1" aria-labelledby="<?= $modalId ?>Label" aria-hidden="true">
   <div class="modal-dialog modal-xl modal-dialog-centered">
     <div class="modal-content border-0 rounded-3 shadow-lg">
       <div class="modal-body p-0">
         <div class="row g-0">
-          <!-- Imagem do produto -->
           <div class="col-lg-7 bg-dark d-flex align-items-center justify-content-center">
             <?php if ($produto['imagem'] && file_exists($produto['imagem'])): ?>
               <img src="<?= htmlspecialchars($produto['imagem']) ?>" class="img-fluid rounded-start" alt="Imagem do produto" style="max-height: 90vh; object-fit: contain;">
@@ -96,16 +93,11 @@ include 'navbar.php';
             <?php endif; ?>
           </div>
 
-          <!-- Informações -->
           <div class="col-lg-5 p-4 d-flex flex-column">
-            <!-- Botão fechar -->
             <button type="button" class="btn-close position-absolute top-0 end-0 m-3" data-bs-dismiss="modal" aria-label="Fechar"></button>
-
-            <!-- Nome do produto e preço -->
             <h3 class="fw-bold mb-2"><?= htmlspecialchars($produto['titulo']) ?></h3>
             <p class="fs-4 text-success fw-semibold mb-3">R$ <?= number_format($produto['preco'], 2, ',', '.') ?></p>
 
-            <!-- Info vendedor -->
             <div class="d-flex align-items-center mb-4">
               <?php if (!empty($produto['foto_perfil']) && file_exists($produto['foto_perfil'])): ?>
                 <img src="<?= htmlspecialchars($produto['foto_perfil']) ?>" alt="Foto do vendedor" class="rounded-circle me-3" width="50" height="50" style="object-fit: cover;">
@@ -118,16 +110,16 @@ include 'navbar.php';
               </div>
             </div>
 
-            <!-- Descrição -->
+
             <p class="text-muted mb-3"><?= nl2br(htmlspecialchars($produto['descricao'])) ?></p>
 
-            <!-- Detalhes adicionais -->
+
             <ul class="list-unstyled small text-muted mb-4">
               <li><strong>Categoria:</strong> <?= htmlspecialchars($produto['categoria_nome']) ?></li>
               <li><strong>Publicado em:</strong> <?= date('d/m/Y', strtotime($produto['criado_em'])) ?></li>
             </ul>
 
-            <!-- Ações -->
+
             <div class="mt-auto d-flex gap-2">
               <a href="contato.php?vendedor=<?= $produto['usuario_id'] ?>" class="btn btn-primary flex-fill">💬 Entrar em contato</a>
               <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Fechar</button>

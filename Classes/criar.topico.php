@@ -4,19 +4,18 @@ session_start();
 
 $conn = new mysqli("localhost", "root", "", "hivedb");
 
-// Verifica se usuário está logado
 if (!isset($_SESSION['nome'])) {
     header("Location: login.php");
     exit;
 }
 
-$nomeUsuario = $_SESSION['nome']; // nome do usuário logado
+$nomeUsuario = $_SESSION['nome']; 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $titulo = $_POST["titulo"];
     $descricao = $_POST["descricao"];
     $categoria = $_POST["categoria_id"];
-    $autor = $nomeUsuario;  // pega da sessão
+    $autor = $nomeUsuario; 
 
     $anexo = "";
     if (!empty($_FILES["anexo"]["name"])) {

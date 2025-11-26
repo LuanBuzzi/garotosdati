@@ -46,10 +46,9 @@ include 'Classes/Servicos.class.php';
     </div>
 </div>
 
-<!-- Botão discreto para abrir o formulário -->
+
 <button id="btnCriarServico" class="btn btn-success" title="Oferecer um serviço" data-bs-toggle="modal" data-bs-target="#modalServico">+</button>
 
-<!-- Modal do formulário -->
 <div class="modal fade" id="modalServico" tabindex="-1" aria-labelledby="modalServicoLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg modal-dialog-centered">
     <div class="modal-content">
@@ -74,7 +73,7 @@ include 'Classes/Servicos.class.php';
                 <select name="categoria_id" class="form-select" required>
                     <option value="">Selecione</option>
                     <?php 
-                    // Recarregar categorias para o modal (pois o fetch_assoc do anterior pode ter consumido)
+
                     $categorias = $conn->query("SELECT * FROM categorias");
                     while ($cat = $categorias->fetch_assoc()): ?>
                         <option value="<?= htmlspecialchars($cat['id']) ?>"><?= htmlspecialchars($cat['nome']) ?></option>

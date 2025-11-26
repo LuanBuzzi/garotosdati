@@ -20,7 +20,6 @@ include 'Classes/criar.topico.php';
   <div class="max-w-xl mx-auto bg-white p-6 rounded shadow">
     <h2 class="text-xl font-semibold mb-4">Criar novo tópico</h2>
    <form method="POST" enctype="multipart/form-data" class="space-y-4">
-  <!-- <input type="text" name="autor" placeholder="Seu nome" class="w-full border p-2 rounded" required> -->
   <input type="text" name="titulo" placeholder="Título" class="w-full border p-2 rounded" required>
   <textarea name="descricao" placeholder="Descrição" rows="5" class="w-full border p-2 rounded" required></textarea>
   <select name="categoria_id" class="w-full border p-2 rounded" required>

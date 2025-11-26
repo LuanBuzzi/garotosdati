@@ -32,7 +32,6 @@ include 'Classes/registro.config.php';
       <input type="email" name="email" placeholder="Email" class="w-full border border-gray-300 p-2 rounded" required>
       <input type="password" name="senha" placeholder="Senha" class="w-full border border-gray-300 p-2 rounded" required>
 
-      <!-- País de origem (dropdown custom) -->
       <div>
         <label for="pais_origem_input" class="block mb-1 font-medium">País de origem:</label>
         <div class="relative">
@@ -47,7 +46,7 @@ include 'Classes/registro.config.php';
         </div>
       </div>
 
-      <!-- País onde reside (select simples) -->
+   
       <div>
         <label for="pais_residencia" class="block mb-1 font-medium">País onde reside:</label>
         <select id="pais_residencia" name="pais_residencia" class="w-full border border-gray-300 rounded px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none" required>
@@ -70,18 +69,17 @@ include 'Classes/registro.config.php';
   const hiddenInput = document.getElementById('pais_origem_input');
   const paisResidenciaSelect = document.getElementById('pais_residencia');
 
-  // Fecha dropdown clicando fora
+
   function closeDropdownOnClickOutside(event) {
     if (!dropdownButton.contains(event.target) && !dropdownMenu.contains(event.target)) {
       dropdownMenu.classList.add('hidden');
     }
   }
 
-  // Carrega países da API
   fetch('https://api-paises.pages.dev/paises.json')
     .then(res => res.json())
     .then(data => {
-      // Dropdown custom para país de origem (todos os países)
+
       Object.values(data).forEach(country => {
         const option = document.createElement('div');
         option.className = 'flex items-center px-3 py-2 hover:bg-gray-100 cursor-pointer';
@@ -97,7 +95,7 @@ include 'Classes/registro.config.php';
         dropdownMenu.appendChild(option);
       });
 
-      // Select para país onde reside (apenas países permitidos)
+
       allowedCountries.forEach(nome => {
         const found = Object.values(data).find(c => c.pais === nome);
         if (found) {

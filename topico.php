@@ -40,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <?php include 'navbar.php'; ?>
 
   <br><br>
-  <!-- Tópico -->
+
   <div class="max-w-3xl mx-auto bg-white p-6 rounded shadow">
     <h1 class="text-2xl font-bold mb-2"><?= htmlspecialchars($topico['titulo']) ?></h1>
     <p class="text-gray-600 mb-1">Categoria: <?= htmlspecialchars($topico['categoria_nome']) ?></p>
@@ -54,7 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <?php endif; ?>
   </div>
 
-  <!-- Respostas -->
+
   <div class="max-w-3xl mx-auto mt-6 bg-white p-6 rounded shadow">
     <h2 class="text-xl font-semibold mb-4">Respostas</h2>
     <?php while ($r = $respostas->fetch_assoc()): ?>
@@ -65,7 +65,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <?php endwhile; ?>
   </div>
 
-  <!-- Responder -->
+
   <div class="max-w-3xl mx-auto mt-6 bg-white p-6 rounded shadow">
     <h3 class="text-lg font-semibold mb-2">Responder</h3>
     <form method="POST" class="space-y-3">
